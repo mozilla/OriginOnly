@@ -1,0 +1,11 @@
+This is a Firefox addon to demonstrate the cookie flag CSRF prevention mechanism.
+
+Questions I’ve been asked so far:
+
+How does it work?
+The mechanism consists of a new cookie flag (tentatively called OriginOnly) which, when set, instructs the browser to only send the cookie when the cookie domain attribute matches the domain of the referring URI#.  Aside from this restriction, browsesr should behave exactly as they would otherwise.
+
+Why is this better than server-side CSRF protection?
+It might not be (CSRF tokens that are tied to the users’ session identifiers are quite safe) but sane CSRF protection mechanisms do not exist, by default, in all frameworks and when they do they are often disabled by developers. This mechanisms would provide a safety mechanism that would protect users in the case of flawed or non-existent server CSRF mechanisms and provide a way to protect legacy applications from future attacks.
+
+One benefit that this mechanism does provide comes from a side effect of the fact that this check is performed by the browser for all requests; not just POSTs where we intend to modify data or perform operations: Because the requests from most reflected XSS attacks would look like forged requests to this mechanism, for pages behind auth, the vulnerable resource may not be reachable.

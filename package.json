@@ -1,0 +1,9 @@
+{
+    "name": "originonly", 
+    "license": "MPL 1.1/GPL 2.0/LGPL 2.1", 
+    "author": "Mark Goodwin", 
+    "version": "0.1", 
+    "fullName": "OriginOnly", 
+    "id": "jid1-oJx4G1k5C3KxQA", 
+    "description": "a simple addon to demonstrate the anti-CSRF cookie flag idea"
+}
